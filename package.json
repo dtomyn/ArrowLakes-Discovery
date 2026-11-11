@@ -1,0 +1,39 @@
+{
+  "name": "arrow-lakes-atlas",
+  "private": true,
+  "version": "0.1.0",
+  "description": "An animated WebGL atlas of the Arrow Lakes, British Columbia, in open data: reservoir levels, wildfires, climate, earthquakes, people, homes, health care, ferries, hikes and valley life.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "data": "node scripts/fetch-data.mjs"
+  },
+  "dependencies": {
+    "@deck.gl/core": "^9.4.1",
+    "@deck.gl/extensions": "^9.4.1",
+    "@deck.gl/geo-layers": "^9.4.1",
+    "@deck.gl/layers": "^9.4.1",
+    "@deck.gl/mapbox": "^9.4.1",
+    "d3": "^7.9.1",
+    "maplibre-gl": "^6.16.0"
+  },
+  "devDependencies": {
+    "@turf/boolean-point-in-polygon": "^7.4.0",
+    "@turf/helpers": "^7.4.0",
+    "@turf/simplify": "^7.4.0",
+    "@types/d3": "^7.4.3",
+    "fflate": "^0.8.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "overrides": {
+    "fflate": "$fflate",
+    "@luma.gl/gltf": {
+      "@loaders.gl/core": "4.5.4",
+      "@loaders.gl/gltf": "4.5.4",
+      "@loaders.gl/textures": "4.5.4"
+    }
+  }
+}

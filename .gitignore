@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.tsbuildinfo
+.vite/
+
+# data-fetch cache and temp scripts
+.cache/
+*.tmp.mjs
+
+# python (video tooling)
+.venv/
+__pycache__/
+*.py[cod]
+
+# rendered video, browser profile and logs
+video/out/
+*.log
+
+# environment and secrets
+.env
+.env.*
+!.env.example
+
+# Claude Code: keep the shared dev-server config, ignore personal settings
+.claude/*
+!.claude/launch.json
+
+# editors and OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

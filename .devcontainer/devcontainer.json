@@ -1,0 +1,31 @@
+// Dev container for the Arrow Lakes Atlas web app and its data pipeline.
+// Open the folder in VS Code and pick "Dev Containers: Reopen in Container".
+// The explainer video (video/render.py) is not set up here: it needs Microsoft
+// Edge on a real GPU to render the WebGL map, so it stays on the Windows host.
+{
+  "name": "Arrow Lakes Atlas",
+  // Node 22 on Debian bookworm, the same Node major as the GitHub Pages build.
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+
+  // Linux needs its own node_modules (Vite's bundler ships native binaries per
+  // platform), so keep them in a volume instead of sharing the Windows copy.
+  "mounts": [
+    "source=arrow-lakes-atlas-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+
+  // The volume is created root-owned; hand it to the node user, then install
+  // exactly what package-lock.json records.
+  "postCreateCommand": "sudo chown node:node node_modules && npm ci",
+
+  // Files edited from Windows (outside VS Code) raise no file events in the
+  // container, so vite.config.ts polls for changes when this is set.
+  "containerEnv": { "ATLAS_WATCH_POLL": "1" },
+
+  "forwardPorts": [5173, 4173],
+  "portsAttributes": {
+    "5173": { "label": "Vite dev server", "onAutoForward": "openBrowser" },
+    "4173": { "label": "Vite preview (built site)" }
+  },
+
+  "remoteUser": "node"
+}

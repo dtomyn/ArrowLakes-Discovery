@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Lakes Atlas</title>
+    <meta name="description" content="An animated atlas of the Arrow Lakes, British Columbia, in open data: reservoir levels, wildfires, climate, people, homes, health care, ferries, hikes and valley life, with a Place Finder for choosing where to live." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%230b1220'/><path d='M13 4c2 3 1 6 3 9s4 5 2 9-5 6-4 7c-3-2-2-6-3-9s-3-5-1-9 3-5 3-7z' fill='%234cc9f0'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="vignette"></div>
+
+    <header class="appbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>Arrow Lakes Atlas</h1>
+          <p>A lake on the Columbia, in open data</p>
+        </div>
+      </div>
+      <div class="layer-picker">
+        <button id="layers-btn" class="pill-btn picker-btn" aria-haspopup="true" aria-expanded="false" aria-controls="layer-menu" title="Choose a data layer (L)">
+          <span id="picker-ic" class="picker-ic"></span>
+          <span class="picker-txt"><span class="picker-k">Layer</span><span id="picker-nm" class="picker-nm"></span></span>
+          <span id="picker-extra" class="picker-extra" hidden></span>
+          <svg class="chev" viewBox="0 0 12 12"><path d="M3 4.5l3 3 3-3" /></svg>
+        </button>
+        <nav id="layer-menu" class="layer-menu" aria-label="Data layers" hidden></nav>
+      </div>
+    </header>
+
+    <aside id="panel" class="panel" aria-live="polite"></aside>
+
+    <div class="top-actions">
+      <button id="finder-btn" class="pill-btn accent" title="Rank communities by what matters to you">
+        <span class="i">◎</span> Place Finder
+      </button>
+      <button id="about-btn" class="pill-btn" title="Where every number comes from (S)"><span class="strata-ic" aria-hidden="true"></span>Data &amp; sources</button>
+      <button id="panel-btn" class="pill-btn icon-btn on" aria-pressed="true" title="Hide the story panel (P)" aria-label="Toggle story panel">
+        <svg viewBox="0 0 20 20"><rect x="2.5" y="3.5" width="15" height="13" rx="2.5" /><path d="M12 3.5v13" /></svg>
+      </button>
+    </div>
+
+    <section id="timeline" class="timeline" aria-label="Timeline">
+      <button id="play" class="play" aria-label="Play">
+        <svg viewBox="0 0 24 24" class="icon-play"><path d="M7 4.5v15l13-7.5z" /></svg>
+        <svg viewBox="0 0 24 24" class="icon-pause"><path d="M6 4h4v16H6zM14 4h4v16h-4z" /></svg>
+      </button>
+      <div class="year-readout">
+        <div id="year" class="year">1950</div>
+        <div id="month" class="month"></div>
+      </div>
+      <div class="track-wrap">
+        <canvas id="spark" class="spark"></canvas>
+        <div id="events" class="events"></div>
+        <input id="scrub" type="range" min="1900" max="2026" step="0.01" value="1950" aria-label="Year" />
+        <div class="track-labels"><span id="t-min"></span><span id="t-label"></span><span id="t-max"></span></div>
+      </div>
+      <div id="static-note" class="static-note" hidden></div>
+      <div class="speed">
+        <label for="speed-sel">Speed</label>
+        <select id="speed-sel">
+          <option value="0.5">½ yr/s</option>
+          <option value="1">1 yr/s</option>
+          <option value="2" selected>2 yr/s</option>
+          <option value="4">4 yr/s</option>
+          <option value="8">8 yr/s</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="toast-stack" class="toast-stack"></div>
+    <div id="tooltip" class="tooltip" hidden></div>
+    <div id="modal" class="modal" hidden></div>
+
+    <div id="loader" class="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Loading a century of valley history…</div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
