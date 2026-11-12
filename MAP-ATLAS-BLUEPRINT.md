@@ -29,7 +29,7 @@ Parts 2–8 are the house style and architecture. Change them only on purpose, s
 | Timeline span | 1919 → today (fires); lake levels from 1922 (natural) and 1969 (reservoir) |
 | Accent colour | per layer (reservoir cyan `#4cc9f0` on the headline layer) |
 | Brand mark colours | default |
-| Live site URL | not deployed yet |
+| Live site URL | https://dtomyn.github.io/ArrowLakes-Discovery/ |
 
 ### 1.2 Places
 

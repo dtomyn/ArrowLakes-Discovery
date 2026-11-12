@@ -4,6 +4,8 @@
 
 ![stack](https://img.shields.io/badge/MapLibre-deck.gl-4cc9f0) ![data](https://img.shields.io/badge/data-open-3ecf8e)
 
+**Live site:** https://dtomyn.github.io/ArrowLakes-Discovery/
+
 ## What's in it
 
 | Feature | What it does |
@@ -44,7 +46,7 @@ Stages: `base, places, population, census, water, fires, climate, normals, quake
 
 ## Deploying
 
-`npm run build` writes `dist/`. `.github/workflows/deploy.yml` publishes to GitHub Pages on a push to `main` (least-privilege permissions). The build adds a Content-Security-Policy.
+`npm run build` writes `dist/`. `.github/workflows/deploy.yml` publishes to GitHub Pages on a push to `main` (least-privilege permissions); the live site is https://dtomyn.github.io/ArrowLakes-Discovery/. The build adds a Content-Security-Policy.
 
 ## Data sources
 

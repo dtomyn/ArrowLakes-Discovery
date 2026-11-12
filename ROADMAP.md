@@ -12,7 +12,7 @@ Ported from Manitoulin Atlas on 2026-11-11; the blueprint is `MAP-ATLAS-BLUEPRIN
 | 6 | Place Report + Place Finder | M | ✅ |
 | 7 | Data & sources view (drawdown-bank sediment cores) | M | ✅ |
 | 8 | Deep finder | L | ⏳ no open parcel data (see below) |
-| 9 | Security and deploy: `esc`/`safeUrl`, CSP, Pages workflow, dev container | S | ✅ (not yet pushed to a GitHub repo) |
+| 9 | Security and deploy: `esc`/`safeUrl`, CSP, Pages workflow, dev container | S | ✅ live at https://dtomyn.github.io/ArrowLakes-Discovery/ |
 | 10 | README + ROADMAP | S | ✅ |
 | 11 | Explainer film | L | ⏳ not ported yet (Manitoulin's `video/` can be adapted) |
 
